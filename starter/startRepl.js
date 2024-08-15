@@ -11,7 +11,8 @@ const repl = require('repl');
 const fs = require('fs');
 const path = require('path');
 
-const scripts = ['./index.js'];
+const scripts = ['./index.js', './finalCode.js'];
+// nodemon --exec "node" startRepl.js
 
 const loadFunctions = () => {
     scripts.forEach(script => {
