@@ -14,11 +14,12 @@ function showUserFactors(factorType, factorUnit) {
         factors[planet] = parseFloat((factorUnit * gravityFactors[planet]).toFixed(2));
     }
     // Switch case to determine the measurement unit based on factor type
+    const factorTypes = [undefined, "jump", "weight", "pushups"];
     switch (factorType) {
         case "jump":
             measurement = 'cm';
             break;
-        case "weight":
+        case "2":
             measurement = 'kg';
             break;
         default:
@@ -26,24 +27,50 @@ function showUserFactors(factorType, factorUnit) {
     }
     // Iterate over the results and log each one
     for (let planet in factors) {
-        console.log(`Your ${factorType} on ${planet} is ${factors[planet]}${measurement}.`);
+        console.log(`Your ${factorTypes[parseInt(factorType)]} on ${planet} is ${factors[planet]}${measurement}.`);
     }
 }
 //console.log(showUserFactors('jump', 150));
 
 // Define a function to get user inputs for factor and value
 function getUserInput() {
-    // Prompt the user to enter which solar system they want to measure in
-    console.log(`Enter the solar system you want to measure in (please enter "milky way" or "andromeda")...`);
-    const galaxyType = prompt(`>> `);
     // Prompt the user to enter the type of factor they want to calculate
-    console.log(`Enter what you want to measure (please enter "weight" or "jump")...`);
-    const factorType = prompt(`>> `);
+    let factorType; 
+    console.log(`Enter what type you want to measure (enter "1" for jump, "2" for weight, or "3" for pushups)...`);
+    factorType = prompt(`>> `);
+    // Prompt the user to enter which type of system they want to measure in
+    let factorSystem;
+    // Prompt the user to enter which measurement they desire
+    let factorMeasurement;
     // Prompt the user to enter the numerical value
-    console.log(`Enter the value of that factor on Earth as a number.`);
-    const factorValue = prompt(`>> `);
+    let factorValue;
     // Call the showUserFactors function with the user inputs and the gravity
-    showUserFactors(factorType.toLowerCase(), factorValue);
+    while (true) {
+        if (parseInt(factorType) > 3 || parseInt(factorType) < 1) {
+            console.log(`Enter what type you want to measure (enter "1" for jump, "2" for weight, or "3" for pushups)...`);
+            factorType = prompt(`>> `);
+        } else {break;}
+    }
+    while (true) {
+        if (parseInt(factorSystem) > 2 || parseInt(factorType) < 1) {
+            console.log(`Enter what type of system you want to measure in (enter "1" for metric, or "2" for imperial)...`);
+            factorSystem = prompt(`>> `);
+        } else { break; }
+    }
+    while (true) {
+        if (parseInt(factorMeasurement) > 2 || parseInt(factorMeasurement) < 1) {
+            console.log(`Enter what type of measurement you desire (enter "1" for distance, or "2" for mass)...`);
+            factorMeasurement = prompt(`>> `);
+        } else { break; }
+    }
+    while (true) {
+        if (isNaN(parseInt(factorValue))) {
+            console.log(`Enter the value of that factor on Earth as a number.`);
+            factorValue = prompt(`>> `);
+        } else { break; }
+    }
+    showUserFactors(factorType, factorValue);
+
 }
 //Expose getUserInput globally
 global.showUserFactors = showUserFactors;
