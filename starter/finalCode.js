@@ -35,26 +35,26 @@ function showUserFactors(factorType, factorUnit) {
 // Define a function to get user inputs for factor and value
 function getUserInput() {
     // Prompt the user to enter the type of factor they want to calculate
-    let factorType; 
-    console.log(`Enter what type you want to measure (enter "1" for jump, "2" for weight, or "3" for pushups)...`);
-    factorType = prompt(`>> `);
     // Prompt the user to enter which type of system they want to measure in
-    let factorSystem;
     // Prompt the user to enter which measurement they desire
     let factorMeasurement;
     // Prompt the user to enter the numerical value
     let factorValue;
     // Call the showUserFactors function with the user inputs and the gravity
     while (true) {
+        let factorType;
+        console.log(`Enter what type you want to measure (enter "1" for jump, "2" for weight, or "3" for pushups)...`);
+        factorType = prompt(`>> `);
         if (parseInt(factorType) > 3 || parseInt(factorType) < 1) {
             console.log(`Enter what type you want to measure (enter "1" for jump, "2" for weight, or "3" for pushups)...`);
             factorType = prompt(`>> `);
-        } else {break;}
+        } else { break; }
     }
     while (true) {
+        let factorSystem;
+        console.log(`Enter what type of system you want to measure in (enter "1" for metric, or "2" for imperial)...`);
+        factorSystem = prompt(`>> `);
         if (parseInt(factorSystem) > 2 || parseInt(factorType) < 1) {
-            console.log(`Enter what type of system you want to measure in (enter "1" for metric, or "2" for imperial)...`);
-            factorSystem = prompt(`>> `);
         } else { break; }
     }
     while (true) {
