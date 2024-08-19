@@ -13,7 +13,7 @@ function showUserFactors(factorType, factorSystem, factorValue, factorGalaxy) {
     let galaxy = (factorGalaxy == 1) ? gravityFactors : alienGravityFactors;
     for (let planet in galaxy) {
         // Calculate the factor multiplied by the input value and round
-        if (factorType == 1) {
+        if (factorType != 2) {
             factors[planet] = parseFloat((factorValue / galaxy[planet]).toFixed(2));
         } else {
             factors[planet] = parseFloat((factorValue * galaxy[planet]).toFixed(2));
@@ -51,12 +51,17 @@ function getUserInput() {
             console.log(`You made a mistake.`);
         } else { break; }
     }
-    while (true) {
-        console.log(`Enter what type of system you want to measure in (enter "1" for metric, or "2" for imperial)...`);
-        factorSystem = prompt(`>> `);
-        if (parseFloat(factorSystem) > 2 || parseFloat(factorSystem) < 1) {
-            console.log(`You made a mistake.`);
-        } else { break; }
+
+    if (factorType != 3) {
+        while (true) {
+            console.log(`Enter what type of system you want to measure in (enter "1" for metric, or "2" for imperial)...`);
+            factorSystem = prompt(`>> `);
+            if (parseFloat(factorSystem) > 2 || parseFloat(factorSystem) < 1) {
+                console.log(`You made a mistake.`);
+            } else { break; }
+        }
+    } else {
+        factorSystem = 1;
     }
     while (true) {
         console.log(`Enter the value of that factor on Earth as a number.`);
