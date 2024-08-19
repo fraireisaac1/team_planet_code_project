@@ -20,7 +20,7 @@ function showUserFactors(factorType, factorSystem, factorValue, factorGalaxy) {
         }
     }
     // Switch case to determine the measurement unit based on factor type
-    const factorTypes = [undefined, "jump", "weight", "pushups"];
+    const factorTypes = [undefined, "jump height", "weight", "# of pushups"];
     // const measurementTypes = [undefined, "cm", { "metric": "kg", "imperial": "lbs" }, "repetitions"];
     const measurementTypes = {
         "1": [undefined, "cm", "kg", "repetitions"],
