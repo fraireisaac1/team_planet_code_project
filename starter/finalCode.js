@@ -47,7 +47,7 @@ function getUserInput() {
     while (true) {
         console.log(`Enter what type you want to measure (enter "1" for jump, "2" for weight, or "3" for pushups)...`);
         factorType = prompt(`>> `);
-        if (parseFloat(factorType) > 3 || parseFloat(factorType) < 1) {
+        if (parseFloat(factorType) > 3 || parseFloat(factorType) < 1 || isNaN(factorType)) {
             console.log(`You made a mistake.`);
         } else { break; }
     }
@@ -56,7 +56,7 @@ function getUserInput() {
         while (true) {
             console.log(`Enter what type of system you want to measure in (enter "1" for metric, or "2" for imperial)...`);
             factorSystem = prompt(`>> `);
-            if (parseFloat(factorSystem) > 2 || parseFloat(factorSystem) < 1) {
+            if (parseFloat(factorSystem) > 2 || parseFloat(factorSystem) < 1 || isNaN(factorType)) {
                 console.log(`You made a mistake.`);
             } else { break; }
         }
@@ -66,14 +66,14 @@ function getUserInput() {
     while (true) {
         console.log(`Enter the value of that factor on Earth as a number.`);
         factorValue = prompt(`>> `);
-        if (isNaN(parseFloat(factorValue))) {
+        if (isNaN(factorValue)) {
             console.log(`You made a mistake.`);
         } else { break; }
     }
     while (true) {
         console.log(`Enter which galaxy you want to measure in (enter "1" for the milky way, or enter "2" for andromeda)...`);
         factorGalaxy = prompt(`>> `);
-        if (parseFloat(factorGalaxy) > 2 || parseFloat(factorGalaxy) < 1) {
+        if (parseFloat(factorGalaxy) > 2 || parseFloat(factorGalaxy) < 1 || isNaN(factorType)) {
             console.log(`You made a mistake.`);
         } else { break; }
     }
@@ -81,5 +81,5 @@ function getUserInput() {
 
 }
 //Expose getUserInput globally
-global.showUserFactors = showUserFactors;
 global.getUserInput = getUserInput;
+getUserInput();
