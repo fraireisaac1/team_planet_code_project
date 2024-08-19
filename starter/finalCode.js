@@ -41,7 +41,7 @@ function getUserInput() {
     // Prompt the user to enter which measurement they desire
     // Prompt the user to enter the numerical value
     let factorType;
-    let factorSystem;
+    let factorSystem = 1;
     let factorValue;
     // Call the showUserFactors function with the user inputs and the gravity
     while (true) {
@@ -60,8 +60,6 @@ function getUserInput() {
                 console.log(`You made a mistake.`);
             } else { break; }
         }
-    } else {
-        factorSystem = 1;
     }
     while (true) {
         console.log(`Enter the value of that factor on Earth as a number.`);
