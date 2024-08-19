@@ -56,7 +56,7 @@ function getUserInput() {
         while (true) {
             console.log(`Enter what type of system you want to measure in (enter "1" for metric, or "2" for imperial)...`);
             factorSystem = prompt(`>> `);
-            if (parseFloat(factorSystem) > 2 || parseFloat(factorSystem) < 1 || isNaN(factorType)) {
+            if (parseFloat(factorSystem) > 2 || parseFloat(factorSystem) < 1 || isNaN(factorSystem)) {
                 console.log(`You made a mistake.`);
             } else { break; }
         }
@@ -71,7 +71,7 @@ function getUserInput() {
     while (true) {
         console.log(`Enter which galaxy you want to measure in (enter "1" for the milky way, or enter "2" for andromeda)...`);
         factorGalaxy = prompt(`>> `);
-        if (parseFloat(factorGalaxy) > 2 || parseFloat(factorGalaxy) < 1 || isNaN(factorType)) {
+        if (parseFloat(factorGalaxy) > 2 || parseFloat(factorGalaxy) < 1 || isNaN(factorGalaxy)) {
             console.log(`You made a mistake.`);
         } else { break; }
     }
