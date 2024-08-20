@@ -31,6 +31,16 @@ function showUserFactors(factorType, factorSystem, factorValue, factorGalaxy) {
         let savedVar = parseInt(factorType);
         console.log(`Your ${factorTypes[savedVar]} on ${planet} is ${factors[planet]} ${measurementTypes[factorSystem][savedVar]}.`);
     }
+    while (true) {
+        let runAgain = prompt(`Would you like to try again? (enter "yes" or "no")...`);
+        if (runAgain.trim().toLowerCase() === "yes") {
+            getUserInput();
+        } else if (runAgain.trim().toLowerCase() === "no") {
+            break;
+        } else {
+            console.log(`You made a mistake.`);
+        }
+    }
 }
 //console.log(showUserFactors('jump', 150));
 
